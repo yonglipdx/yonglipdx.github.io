@@ -8,10 +8,9 @@ layout: feed
 	<link href="http://yonglipdx.github.io/blog/atom.xml" rel="self"/>
 	<link href="http://yonglipdx.github.io/blog"/>
 	<updated>{{ site.time | date_to_xmlschema }}</updated>
-	<id>http://hankquinlan.github.io/blog</id>
+	<id>http://yonglipdx.github.io/blog</id>
 	<author>
-		<name>Yong Li</name>
-		<email>xxx@gmail.com</email>
+		<name>Yong</name>
 	</author>
 
 	{% for post in site.posts %}
