@@ -11,5 +11,5 @@ otherwise find the minimum station i and return i+1.
 
 Look at figure below. If starting from minimum + 1 station. this figure should shift positive to above x-axis.
 
-![gas_station ](https://github.com/yonglipdx/yonglipdx.github.io/blob/master/_posts/pics/gas_staion.png?raw=true)
+![gas_station ](images/gas_staion.png?raw=true)
 
