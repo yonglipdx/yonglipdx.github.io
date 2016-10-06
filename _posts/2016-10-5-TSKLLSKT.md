@@ -16,10 +16,20 @@ date: 2016-10-05
 4. Give a child his wishes in fantasy
    * Sometimes just having someone understand how much  you want something makes reality easier to bear
 
-But more important than any words we use is our attitude. If our attitude is not one of compassion, then whatever we say will be experienced by the child as phony or manipulative. It is when our words are infused with our real feelings of empathy that they speak directly to a child’s heart. Of the four skills you’ve just seen illustrated, perhaps the most difficult is to have to listen to a child’s emotional outpourings and then “give a name to the feeling.” It takes practice and concentration to be able to look into and beyond what a child says in order to identify what he or she might be feeling. Yet it’s important that we give our children a vocabulary for their inner reality. Once they have the words for what they’re experiencing, they can begin to help themselves.
+> But more important than any words we use is our attitude. If our attitude is not one of compassion, then whatever we say will be experienced by the child as phony or manipulative. It is when our words are infused with our real feelings of empathy that they speak directly to a child’s heart. Of the four skills you’ve just seen illustrated, perhaps the most difficult is to have to listen to a child’s emotional outpourings and then “give a name to the feeling.” It takes practice and concentration to be able to look into and beyond what a child says in order to identify what he or she might be feeling. Yet it’s important that we give our children a vocabulary for their inner reality. Once they have the words for what they’re experiencing, they can begin to help themselves.
  
 
-## Engaging Cooperation
+> ### 第一章例句 
+> 1. YOU CAN LISTEN QUIETLY AND ATTENTIVELY.
+> 2. YOU CAN ACKNOWLEDGE THEIR FEELINGS WITH A WORD.
+>   * **Oh . . . Mmm . . . I see . . .**
+> 3. YOU CAN GIVE THE FEELING A NAME.
+>   * **That sounds frustrating!**
+> 4. YOU CAN GIVE THE CHILD HIS WISHES IN FANTASY.
+>   * **I wish I could make the banana ripe for you right now!**
+> All feelings can be accepted. Certain actions must be limited. I can see how angry you are at your brother. Tell him what you want with words, not fists.
+
+## 第二章Engage Cooperation
 
 > One of the built-in frustrations of parenthood is the daily struggle to get our children to behave in ways that are acceptable to us and to society.
 > *Children's attitude: *I'll do what i want*.
@@ -59,17 +69,6 @@ But more important than any words we use is our attitude. If our attitude is not
    * "All you ever do is complain. You've never once tried to help yourself. I can see you ten years from now - stuck with the same problems and still complaining." 
    * * "It's no use", "I give up", "I can too be trusted, I'll prove him wrong"*
 
-### 第一章例句 
-1. YOU CAN LISTEN QUIETLY AND ATTENTIVELY.
-2. YOU CAN ACKNOWLEDGE THEIR FEELINGS WITH A WORD.
-   * **Oh . . . Mmm . . . I see . . .**
-3. YOU CAN GIVE THE FEELING A NAME.
-   * **That sounds frustrating!**
-4. YOU CAN GIVE THE CHILD HIS WISHES IN FANTASY.
-   * **I wish I could make the banana ripe for you right now!**
- > All feelings can be accepted. Certain actions must be limited. I can see how angry you are at your brother. Tell him what you want with words, not fists.
-
-## 第二章 To Engage Cooperation
 1. **Describe**. Describe what you see or describe the problem.
    * *"You always start the tub and forget about. This is irresponsible"*
    * **"Johnny, the water in the bath tub is getting close to the top"**
@@ -89,17 +88,17 @@ But more important than any words we use is our attitude. If our attitude is not
    * Sometimes nothing we say is as effective as the written word. 
 ![writing_note]({{ site.url }}/images/writing_note.PNG)
    
-### 第二章例句
-1. DESCRIBE WHAT YOU SEE, OR DESCRIBE THE PROBLEM. 
-   * **There’s a wet towel on the bed.** 
-2. GIVE INFORMATION. 
-   * **The towel is getting my blanket wet.**
-3. SAY IT WITH A WORD. 
-   * **The towel!** 
-4. DESCRIBE WHAT YOU FEEL. 
-   * **I don’t like sleeping in a wet bed!** 
-5. WRITE A NOTE. (above towel rack)
-   * ** Please put me back so I can dry. Thanks! Your Towel**
+> ### 第二章例句
+> 1. DESCRIBE WHAT YOU SEE, OR DESCRIBE THE PROBLEM. 
+>    * **There’s a wet towel on the bed.** 
+> 2. GIVE INFORMATION. 
+>    * **The towel is getting my blanket wet.**
+> 3. SAY IT WITH A WORD. 
+>    * **The towel!** 
+> 4. DESCRIBE WHAT YOU FEEL. 
+>    * **I don’t like sleeping in a wet bed!** 
+> 5. WRITE A NOTE. (above towel rack)
+>    * ** Please put me back so I can dry. Thanks! Your Towel**
 
 
 
