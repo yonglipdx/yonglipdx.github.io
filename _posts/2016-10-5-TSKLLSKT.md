@@ -102,16 +102,6 @@ But more important than any words we use is our attitude. If our attitude is not
    * ** Please put me back so I can dry. Thanks! Your Towel**
 
 
-## Techinal
-
-### cscope
-   * Tip
-      * tprev - Jump to the previous matching tag 
-      * tlast - Jump to the last matching tag 
-      * tfirst - Jump to the first matching tag 
-      * tselect - Display a list of all the matching tags and jump to the selected tag 
-
-
 
 
    
