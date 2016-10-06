@@ -2,7 +2,7 @@
 date: 2016-10-05
 ---
 
-## Helping Children Deal with Their Feelings
+## 第一章: Helping Children Deal with Their Feelings
 
 1. Listen with full attention.  
    * It's much easier to tell your troubles to a parent who is really listening
@@ -59,7 +59,17 @@ But more important than any words we use is our attitude. If our attitude is not
    * "All you ever do is complain. You've never once tried to help yourself. I can see you ten years from now - stuck with the same problems and still complaining." 
    * * "It's no use", "I give up", "I can too be trusted, I'll prove him wrong"*
 
-### To Engage Cooperation
+### 第一章例句 
+1. YOU CAN LISTEN QUIETLY AND ATTENTIVELY.
+2. YOU CAN ACKNOWLEDGE THEIR FEELINGS WITH A WORD.
+   * **Oh . . . Mmm . . . I see . . .**
+3. YOU CAN GIVE THE FEELING A NAME.
+   * **That sounds frustrating!**
+4. YOU CAN GIVE THE CHILD HIS WISHES IN FANTASY.
+   * **I wish I could make the banana ripe for you right now!**
+ > All feelings can be accepted. Certain actions must be limited. I can see how angry you are at your brother. Tell him what you want with words, not fists.
+
+## 第二章 To Engage Cooperation
 1. **Describe**. Describe what you see or describe the problem.
    * *"You always start the tub and forget about. This is irresponsible"*
    * **"Johnny, the water in the bath tub is getting close to the top"**
@@ -79,6 +89,27 @@ But more important than any words we use is our attitude. If our attitude is not
    * Sometimes nothing we say is as effective as the written word. 
 ![writing_note]({{ site.url }}/images/writing_note.PNG)
    
+### 第二章例句
+1. DESCRIBE WHAT YOU SEE, OR DESCRIBE THE PROBLEM. 
+   * **There’s a wet towel on the bed.** 
+2. GIVE INFORMATION. 
+   * **The towel is getting my blanket wet.**
+3. SAY IT WITH A WORD. 
+   * **The towel!** 
+4. DESCRIBE WHAT YOU FEEL. 
+   * **I don’t like sleeping in a wet bed!** 
+5. WRITE A NOTE. (above towel rack)
+   * ** Please put me back so I can dry. Thanks! Your Towel**
+
+
+## Techinal
+
+### cscope
+   * Tip
+      * tprev - Jump to the previous matching tag 
+      * tlast - Jump to the last matching tag 
+      * tfirst - Jump to the first matching tag 
+      * tselect - Display a list of all the matching tags and jump to the selected tag 
 
 
 
