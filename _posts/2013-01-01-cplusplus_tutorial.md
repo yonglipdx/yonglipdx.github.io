@@ -1,75 +1,104 @@
 # A Tutorial of C++ by Barne Stroustrup.
 
 ## The basic
+
 1. C++ is statical language.
   * Compiler has to know all variable type when in compile/run? time.
+
 2. A non-zero return value from main() indicates a failure.
-  * If no value returned, the system will receive a value indicating successfully completion. 
-  * Not every system and execution environment make use of return value.
-3. A function declariation may contains arguments which is helpful for reading. 
-  The compiler will simply ignore the argument unless the declaration is also a function definition.
+  > If no value returned, the system will receive a value indicating successfully completion. 
+  > Not every system and execution environment make use of return value.
+
+3. A function declariation may contains arguments which is helpful for reading.
+  > `int f(int input)` is same as `f(int) `
+  > The compiler will simply ignore the argument unless the declaration is also a function definition.
+
 4. For class member function, the name of the class is also part of the function type ---> ?????
+
 5. Scope and life time
-  local scope, class scope, namespace scope, 
-    for a namespace object, the point of destruction is the end of the program.
-  a object created by "new" "lives" until destroyed by "delete"
+
+  > local scope, class scope, namespace scope, 
+  > for a namespace object, the point of destruction is the end of the program.
+  > a object created by "new" "lives" until destroyed by "delete"
+
 6. constexpr: evaluated at compile time.
+
     ----> ?????? We allow a constexpr function to be called with non-constant-expression arguments
     in contexts that do not require constant expressions, so that we don’t have to define essentially
     the same function twice: once for constant expressions and once for variables
+
 7. int v[] = {0,1,2,3,4};
-  for (auto a :v) count << v[a];
-8. Prefer the {}-initializer syntax for declarations with a named type;
-    Prefer the = syntax for the initialization in declarations using auto
+
+  > for (auto a :v) count << v[a];
+
+8. Prefer the {} initializer syntax for declarations with a named type;
+   Prefer the = syntax for the initialization in declarations using auto
+
 9. Use nullptr rather than 0 or NULL
 
-*** User defined Types
-	1. A struct is simply a class with its members public by default.
 
-*** Modularity
-	1. C++ offers namespaces as a mechanism for expressing that some declaration belong together and their 
-		names should clash with other names.
-	2. void user(int sz) noexcept ---> A function should never thrown an exception can be declared "noexcept".
-		if all good intend and handling fails, so that the function still throws, the standard library function
-		"terminate" is called immediately. 
-	3. Often, a function has no way of completing its assigned task after an exception is thrown. 
-		"handling" exception simply means doming some minimal local cleanup and rethrowning.
-      when "new" cant find memory to allocate, std::bad_alloc is thrown.
-	4. static_assert<A,S> prints S as compiler error message if A is not true
-	5. Avoid non-inline function definition in headers.
-	6. let constructor establish an invariant, and throw if it cannot ------>???????
-	7. design error-handling strategy around invariants. ------>??????
+## User defined Types
 
-*** Class
-	1. RAII: Resource Acquisition Is Initialization. -> Avoid naked "new" and "delete"
-	2. <static_cast><int>(list.size()): static_cast does not check the value it is converting ---->??????
-	   page: 39
-	3. A container is an object holding a collection of elements, 
-	4. dynamic_cast: "is kind of" and "is instance of" operation
-	   if the object pointed to by the argument of dynmaic_cast is not of the expected type, nullptr returned. --> usually not failure
-		when a different type is unacceptable, we can simple dynamic_cast to a reference type. If the object is not
-		of the expected type, bad_cast is thrown.---> failure
-	5. use unique_ptr to avoid naked pointer.
-	6. && means rvlue reference and is reference to which can bind an rvalue.
-		a move constructor doesnot take const argument, after all, a move constructor is supposed to remove the value from its argument. 
-		a move operator is applied when an rvalue reference is used to an  initializer or as the right-hand side of an assignment.
-		when the programmer knows that a value will not be used again, but the compiler cannot be smart enough to figure that out, 
-		the programmer can be specific: y = std::move(x);
-	7. Essential Operations
-		Constructors, destructors, copy operation, move operations. 
-		If a class X has a destuctor that performs a nontrivial task, such as free-store deallocation or lock release, the class is likely 
-		to need the full complement of functions:
-			X(Sometype);	// "ordinary constructor" create an object
-			X(); 				// default constructor
-			X(const X&)		// copy constructor
-			X(const X&&)	// move constructor
-			X& operator=(const X&) 	// conpy assignment: clean up target and copy
-			X& operator=(X&&) 		// move assignment: clean up target and move
-			~X() 				// destructor: clean up
-         Except "ordinary constructor", these special member functions will be generated by the compiler as needed.
-			to be explicit about generating default implementation:
-	      Y(const Y&) = default;
-         ***if you are explicit about some defaults, other default definitions will not be generated****
+	* A struct is simply a class with its members public by default.
+
+## Modularity
+1. C++ offers namespaces as a mechanism for expressing that some declaration belong together and their 
+  names should clash with other names.
+
+2. void use(int sz) **noexcept** 
+  * A function should never thrown an exception can be declared "noexcept".
+  * I all good intend and handling fails, so that the function still throws, the standard library function "terminate" is called immediately. 
+
+3. A function has no way of completing its assigned task after an exception is thrown. 
+  * "handling" exception simply means doming some minimal local cleanup and rethrowning.
+  * when "new" can't find memory to allocate, std::bad_alloc is thrown.
+
+4. static_assert<A,S>
+  * prints S as compiler error message if A is not true
+
+5. Avoid non-inline function definition in headers.
+
+6. let constructor establish an invariant, and throw if it cannot ------>???????
+
+7. design error-handling strategy around invariants. ------>??????
+
+## Class
+
+1. RAII: Resource Acquisition Is Initialization.
+   * Avoid naked "new" and "delete"
+
+2. <static_cast><int>(list.size())
+   * static_cast does not check the value it is converting ---->??????
+
+3. A container is an object holding a collection of elements, 
+
+4. dynamic_cast: "is kind of" and "is instance of" operation
+   * If the object pointed to by the argument of dynmaic_cast is not of the expected type, nullptr returned. Usually not failure
+ when a different type is unacceptable, we can simple dynamic_cast to a reference type. If the object is not of the expected
+ type, bad_cast is thrown.---> failure
+
+5. Use unique_ptr to avoid naked pointer.
+
+6. && means rvlue reference and is reference to which can bind an rvalue.
+   * A move constructor doesnot take const argument, after all, a move constructor is supposed to remove the value from its argument. 
+   * A move operator is applied when an rvalue reference is used to an initializer or as the right-hand side of an assignment.
+   * when the programmer knows that a value will not be used again, but the compiler cannot be smart enough to figure that out, the programmer can be specific: y = std::move(x);
+
+7. Essential Operations
+   * **Constructors, destructors, copy operation, move operations** 
+   * If a class X has a destuctor that performs a nontrivial task, such as free-store deallocation or lock release, the class is likely to need the full complement of functions:
+
+> 			X(Sometype);	// "ordinary constructor" create an object
+> 			X(); 				// default constructor
+> 			X(const X&)		// copy constructor
+> 			X(const X&&)	// move constructor
+> 			X& operator=(const X&) 	// conpy assignment: clean up target and copy
+> 			X& operator=(X&&) 		// move assignment: clean up target and move
+> 			~X() 				// destructor: clean up
+>       Except "ordinary constructor", these special member functions will be generated by the compiler as needed.
+> 			to be explicit about generating default implementation:
+> 	    Y(const Y&) = default;
+>       ***if you are explicit about some defaults, other default definitions will not be generated****
 
 		There are five situations in which an object is copied or  moved:
 			As the source of an assignment
