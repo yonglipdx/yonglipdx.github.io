@@ -100,6 +100,29 @@ date: 2016-10-05
 > 5. WRITE A NOTE. (above towel rack)
 >    * ** Please put me back so I can dry. Thanks! Your Towel**
 
+> ### Cautions
+* Describe.
+  * Father: "The door is open"
+  * Son:    "So why don't you close it?"
+* Give information
+  * "Name-calling can hurt feelings" ---> good
+  * Refrain from giving the child information she already knows. She might conclude either that you think she's studpid or that you're being sarcastic.
+* the One-Word Statement
+  * Don't use your child's name as your one-word statement. She may associate her name with disapproval.
+* Describe what you feel
+   * "I have as much patience as a watermelon now"---> good
+   * "Well, right now I have as much patience as a grapefruit"
+   * "It's about the size of a pea now. I think we ought to quit before it shrivels."
+   * Some children are very sensitive to their parents' disapproval. The them 
+      * "I am angry" could be too strong. and they belligerently answer
+      * "I am angry, too!" 
+      * Not sure if Athena is very sensitive parents'diapproval 
+
+
+
+
+
+
 
 
 
