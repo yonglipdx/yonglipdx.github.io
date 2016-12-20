@@ -137,6 +137,8 @@ date: 2016-10-05
     3. Sum up the child's praiseworthy behavior with a word
       > "You sorted out you Legos, cars, and farm animals, and put them in separated boxes. That's waht i call *organization!"
   * Instead of evaluating ("good", "great, "fantastic") **Describe** 
+
+
 ![writing_note]({{ site.url }}/images/descriptive_praise_1.PNG)
 ![writing_note]({{ site.url }}/images/descriptive_praise_2.PNG)
 ![writing_note]({{ site.url }}/images/descriptive_praise_3.PNG)
