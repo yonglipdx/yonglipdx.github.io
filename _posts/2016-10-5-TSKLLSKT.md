@@ -116,9 +116,37 @@ date: 2016-10-05
    * Some children are very sensitive to their parents' disapproval. The them 
       * "I am angry" could be too strong. and they belligerently answer
       * "I am angry, too!" 
-      * Not sure if Athena is very sensitive parents'diapproval 
+      * Not sure if Athena is very sensitive parents' disapproval 
+
+## 第三章 Alternatives to Punishment
+
+## 第四章encouraging Autonomy
+
+## 第五章praise
+
+  * Potential problems with praise
+    * Praise can make kid doubt the praiser. ("If she thinks I'm a good cook, she is either lying or knows nothing about good food.")
+    * Praise can lead to immediately denial. ("Always beautifully dressed!... You should have seen me an hour ago.")
+    * Praise can be **THREATENING/CREATING ANXIETY and INTERFERE with ACTIVITY**. ("But what if I do no good next time").
+  
+  * Instead of evaluating ("good", "great, "fantastic") **Describe** 
+    1. Describe what you see
+      > "I see a clean floor, a smooth bed, and books neatly lined up on the shelf."
+    2. Describe what you feel
+      > "It's a pleasure to walk into this room!"
+    3. Sum up the child's praiseworthy behavior with a word
+      > "You sorted out you Legos, cars, and farm animals, and put them in separated boxes. That's waht i call *organization!"
+  * Instead of evaluating ("good", "great, "fantastic") **Describe** 
+![writing_note]({{ site.url }}/images/descriptive_praise_1.PNG)
+![writing_note]({{ site.url }}/images/descriptive_praise_2.PNG)
+![writing_note]({{ site.url }}/images/descriptive_praise_3.PNG)
 
 
+    
+
+## 第六章Freeing Children from Playing Roles
+
+## 第七章Putting it all Together
 
 
 
