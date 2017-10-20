@@ -1414,7 +1414,6 @@ A struct is simply a class with its members public by default.
         size_t i: 
                  if (i > -1) // not OK since i always > -1
                  use i< (size_t)-1  to make sure i > -1;
-
         ssize_t i: 
 		 i > -1 is OK since i could be -1 in ssize_t
         ```
