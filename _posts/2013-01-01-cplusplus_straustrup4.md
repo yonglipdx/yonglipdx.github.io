@@ -143,7 +143,7 @@ A struct is simply a class with its members public by default.
 	18. by default, declare single-argument constructor explicit.
 	19. if a class is a resource handle, it needs a constructor, a destructor, and non-default copy operations.
 
-*** Template
+## Template
 	1. In C++98, space is needed between two nested template > >
 	2. Template are a compile-time mechanism, so their use incurs no run-time overhead compared to hand-crafted code.
 	3. Template value argument is useful in many contexts 
@@ -298,11 +298,11 @@ A struct is simply a class with its members public by default.
 	15. Use lambda if you need a simple function object in one place only.
 	16. There is no separate compilation of templates.: #include template definitions in every translation unit that uses them.
 			
-*** Library Overview
+##  Library Overview
 	1. array, bitset, and tuple are special-purpose containers. they are container.
 	2. standard-library are defined in namespace std;
 
-*** String and Regular Expression
+##  String and Regular Expression
 	1. The stardard string has a move constructor so retuning even long strings by value is efficient.
 	2. String is mutable.
 	3. String can be compared
@@ -320,7 +320,7 @@ A struct is simply a class with its members public by default.
 	13. USe regex_search() to search for a pattern in a input stream.
 	14. Uaw regex_iterators for iterating over a stream looking for a pattern
 
-*** I/O stream
+## I/O stream
 	1. The I/O stream library provides formatted and unformatted buffered I/O of text and numeric values.
 	4. The operations on istream and ostreams are type-safe, type-sensitive and extensible to handle user-defined types.
 
@@ -407,7 +407,7 @@ A struct is simply a class with its members public by default.
 	17. Remember to check that a file stream is attached to a file before using it.
 	18. user stringstream for in-memory formatting
 	
-*** Container
+## Container
 	1. A class with the main purpose of holding objects is commonly called container.
 
 	2. vector: use it as default container. 
@@ -471,7 +471,7 @@ A struct is simply a class with its members public by default.
 	16. use ordered containers (eg. map, set) if need to iterate over their elements in order.
 	17 hash function obtained by combining standard hash functions for elements using exclusive or are often good.
 
-*** Algorithms
+## Algorithms
 	void f(vector<Entry>& vec, list<entry>& lst){
 		sort(vec.begin(), vec.end()));
 		unique_copy(vec.begin(), vec.end(), lst.begin());
@@ -604,11 +604,10 @@ A struct is simply a class with its members public by default.
    29. A predicate must not modify its argument.
    
 
-*** Utilities
+## Utilities
    1. The standard library components are designed not to leak resources. 
    2. In <memory> standard library provide:
-
-   3. **** unique_ptr: represent unique ownership  ---> moved
+   3. ** unique_ptr: represent unique ownership  ---> moved
       void (int i, int j){
          X *p = new X;
          unique_ptr<X> sp {new X};
@@ -623,7 +622,7 @@ A struct is simply a class with its members public by default.
          delte p; // this may not work in case of exception, early return..
       }
    
-   4. *** shared_ptr: represent shared ownership ----> copied. The shared_ptrS for an object share ownership of an object and
+   4. ** shared_ptr: represent shared ownership ----> copied. The shared_ptrS for an object share ownership of an object and
                   that object is destroyed when the last of its shared_ptrS is destroyed. 
         void f(shared_ptr<fstream>);
         void g(shared_ptr<fstream>);
@@ -929,7 +928,7 @@ A struct is simply a class with its members public by default.
 	31. Use function when you need to store sth that can be called
 	32. You can write code to explicitly depend on properties of types.
 
-*** Numeric 
+## Numeric 
 
 	1. Mathematical functions <cmath>
 		abs(x) Absolute value
@@ -1037,7 +1036,7 @@ A struct is simply a class with its members public by default.
 
 		Use numeric_limits to check that the numeric types are adequate for their use
 
-*** Concurrency
+## Concurrency
 	The standard-library support is primarily aimed at supporting systems-level concurrency rather than directly providing sophisticated
 	higher-level concurrency models. Those can be supplied as libraries built suing the standard-library facilities.
 	The STD supports concurrent execution of multiple threads in a single address space. To allow that, C++ provides a suitable memory model and 
@@ -1393,12 +1392,24 @@ A struct is simply a class with its members public by default.
 
 ### stringstream:
 	example1: 
-	```cpp
+	'''cpp
 	  string a("123");
           stringstream ss(a);
 	  ss << "456"
 	  cout << aa.str(); ---> 456
-	```
+ 	'''	
+	
+	'''python
+	  def dummy1():
+	     pass
+	'''
+
+	```python
+	  def dummy2():
+	     pass
+        ```	
+	
+	
 
         example2:
 	  string a("123");
@@ -1408,9 +1419,8 @@ A struct is simply a class with its members public by default.
 
 ### ssize_t size_t
 
-        to avoid i == -1
-
 	```cpp
+        to avoid i == -1
         size_t i: 
                  if (i > -1) // not OK since i always > -1
                  use i< (size_t)-1  to make sure i > -1;
