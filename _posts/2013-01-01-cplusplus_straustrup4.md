@@ -10,8 +10,8 @@
   * Compiler has to know all variable type when in compile/run? time.
 
 2. A non-zero return value from main() indicates a failure.
-  * If no value returned, the system will receive a value indicating successfully completion. 
-    Not every system and execution environment make use of return value.
+* If no value returned, the system will receive a value indicating successfully completion. 
+  * Not every system and execution environment make use of return value.
 
 3. A function declariation may contains arguments which is helpful for reading.
   * `int f(int input)` is same as `f(int) `
