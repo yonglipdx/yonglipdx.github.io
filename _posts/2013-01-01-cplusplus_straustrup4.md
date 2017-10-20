@@ -2,34 +2,33 @@
 ## The Preface
 
 
-
 ## A Tutorial of C++ by Barne Stroustrup.
 
 ## The basic
 
-  1. C++ is statical language.
-    * Compiler has to know all variable type when in compile/run? time.
+1. C++ is statical language.
+  * Compiler has to know all variable type when in compile/run? time.
 
-  2. A non-zero return value from main() indicates a failure.
-    * If no value returned, the system will receive a value indicating successfully completion. 
-     Not every system and execution environment make use of return value.
+2. A non-zero return value from main() indicates a failure.
+  * If no value returned, the system will receive a value indicating successfully completion. 
+    Not every system and execution environment make use of return value.
 
-  3. A function declariation may contains arguments which is helpful for reading.
-    * `int f(int input)` is same as `f(int) `
-    * The compiler will simply ignore the argument unless the declaration is also a function definition.
-  4. For class member function, the name of the class is also part of the function type ---> ?????
-  5. Scope and life time
-    * local scope, class scope, namespace scope, 
-    * for a namespace object, the point of destruction is the end of the program.
-    * a object created by "new" "lives" until destroyed by "delete"
-  6. constexpr: evaluated at compile time.   
-      ----> ?????? We allow a constexpr function to be called with non-constant-expression arguments
-      in contexts that do not require constant expressions, so that we don’t have to define essentially
-      the same function twice: once for constant expressions and once for variables
-  7. int v[] = {0,1,2,3,4};
-    > `for (auto a :v) count << v[a];`
-  8. Prefer the {} initializer syntax for declarations with a named type; Prefer the = syntax for the initialization in declarations using auto
-  9. Use nullptr rather than 0 or NULL
+3. A function declariation may contains arguments which is helpful for reading.
+  * `int f(int input)` is same as `f(int) `
+  * The compiler will simply ignore the argument unless the declaration is also a function definition.
+4. For class member function, the name of the class is also part of the function type ---> ?????
+5. Scope and life time
+  * local scope, class scope, namespace scope, 
+  * for a namespace object, the point of destruction is the end of the program.
+  * a object created by "new" "lives" until destroyed by "delete"
+6. constexpr: evaluated at compile time.   
+    ----> ?????? We allow a constexpr function to be called with non-constant-expression arguments
+    in contexts that do not require constant expressions, so that we don’t have to define essentially
+    the same function twice: once for constant expressions and once for variables
+7. int v[] = {0,1,2,3,4};
+  > `for (auto a :v) count << v[a];`
+8. Prefer the {} initializer syntax for declarations with a named type; Prefer the = syntax for the initialization in declarations using auto
+9. Use nullptr rather than 0 or NULL
 
 ## User defined Types
   A struct is simply a class with its members public by default.
@@ -636,7 +635,6 @@
         void f(shared_ptr<fstream>);
         void g(shared_ptr<fstream>);
 
-        ~~~~~
         void user(const string& name, ios_base::openmode mode){
            shared_ptr<fstream> fp {new fstream(name, mode))};
            if (!*fp) throw No_file{};
@@ -645,7 +643,6 @@
            g(fp);
            //..
         }
-        ~~~~~
 
         Now the file opened by fp-s constructor will be closed by the last function to (explicitly or implicitly) destroy a copy of fp.
         Not that f() or g() may spawn a task holding a copy of fp or in some other way store a copy that outlives user(). Thus, shared_ptr
