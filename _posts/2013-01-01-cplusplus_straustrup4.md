@@ -1303,45 +1303,45 @@ A struct is simply a class with its members public by default.
 				
 	
 
-# VI
+### VI
    set spell spelllang=en_us
    set syntax=c++/java/latex/python...
    set tabstop=3 softtabstop=0 noexpandtab shiftwidth=3
    set guifont=Lucida_Console:h10  
    spell ]s-> find next. z= -> spell suggetion zg -> add word to dictionary
 
-#change git default editor:
+###change git default editor:
 	Add gvim path to system PATH (e.g C:\Programs Files (x86)\Vim\vim74
 	git config --global core.editor [to_gvim_path_without_exe]
 
-#change gvim background color: 
+###change gvim background color: 
 	In .vimrc
    	colorscheme koehler
 
-# Make gvim compatible with Chinese character
+### Make gvim compatible with Chinese character
 	In .vimrc:
    	set encodding=utF8
    	set guifontwide=NSimSun
 
-# to solve conflict issue simpliar to sync/commit in perforce.
-# git stash
-# git pull
-# git stash pop
-#  resolve conflict if any
-#  git push origin master
+### to solve conflict issue simpliar to sync/commit in perforce.
+### git stash
+### git pull
+### git stash pop
+###  resolve conflict if any
+###  git push origin master
 
-# syntax highlight in gvim
+### syntax highlight in gvim
         set syntax=cpp
         set syntax=lex
  
-# Lex
+### Lex
 	Scanner produces a stream of tokens from the input source.
 	lex is a scanner generator.
 	lex input is set of regular expressions and associated action (wirtten in C)
 	lex output is a table-driven scanner (lex.yy.c)
 	flex: an open source implementation of lex.
 
-	# lex input
+	### lex input
 		first part (optional)
 		table size demision
 		defination of text replacement
@@ -1371,11 +1371,11 @@ A struct is simply a class with its members public by default.
 	Example2: suppose we have configuration file "config.in"
 	--------
 
-# yacc
+### yacc
 
 
 
-# char* const vs    const char*
+### char* const vs    const char*
 	according to the standard, const modifies the element directly to its left. 
 	The use of const at the beginning of a declaration is just a convenient mental shortcut. 
 	So the following two statements are equivalent:
@@ -1391,12 +1391,14 @@ A struct is simply a class with its members public by default.
 	
 	
 
-# stringstream:
+### stringstream:
 	example1: 
+	```cpp
 	  string a("123");
           stringstream ss(a);
 	  ss << "456"
 	  cout << aa.str(); ---> 456
+	```
 
         example2:
 	  string a("123");
@@ -1404,16 +1406,18 @@ A struct is simply a class with its members public by default.
 	  ss << a << << "456"
 	  cout << aa.str(); ---> 123456
 
-# ssize_t size_t
+### ssize_t size_t
 
         to avoid i == -1
 
+	```cpp
         size_t i: 
                  if (i > -1) // not OK since i always > -1
                  use i< (size_t)-1  to make sure i > -1;
 
         ssize_t i: 
 		 i > -1 is OK since i could be -1 in ssize_t
+        ```
 
 
 
