@@ -474,39 +474,42 @@
 	17. hash function obtained by combining standard hash functions for elements using exclusive or are often good.
 
 ## Algorithms
-  void f(vector<Entry>& vec, list<entry>& lst){
-		sort(vec.begin(), vec.end()));
-		unique_copy(vec.begin(), vec.end(), lst.begin());
-	}
-	in this example, to write the output to list, we need specify the lst element to be written. if more elements to 
-	be written, the elements followed the initial element will be overwritten. Thus, to avoid error, 1st must have as 
-	many element as there are unique values in vec. 
-   
-	If we want to place the unique elements in a new container, we could have done:
-	
-	list<Entry> f(vector<Entry>& vec)
-	{
-		list<Entry> res;
-		sort(vec.begin(), vec.end());
-		unique(vec.begin(), vec.end(), back_inserter(res));
-		return res;
-	}
 
-	the call back_inserter(res) construct an iterator for res that adds elements at the end of the container, entending
-	container to make room for them. This save us from first having to allocate a fixed amount of space and then filling i1.t.
-	back_inserter eliminate the C-style error-prone realloc().
-	Standard-library list has a move constructor that make return res by value efficient.
-	Q: how move constructor is selected instead of copy?
+  *
+    void f(vector<Entry>& vec, list<entry>& lst){
+      sort(vec.begin(), vec.end()));
+      unique_copy(vec.begin(), vec.end(), lst.begin());
+    }
 
-  1. Any particular iterator is an object of some type. What is common for all iterators i their semantics and the nmaing of their
+    in this example, to write the output to list, we need specify the lst element to be written. if more elements to 
+    be written, the elements followed the initial element will be overwritten. Thus, to avoid error, 1st must have as 
+    many element as there are unique values in vec. 
+     
+    If we want to place the unique elements in a new container, we could have done:
+    
+    list<Entry> f(vector<Entry>& vec)
+    {
+      list<Entry> res;
+      sort(vec.begin(), vec.end());
+      unique(vec.begin(), vec.end(), back_inserter(res));
+      return res;
+    }
+
+    the call back_inserter(res) construct an iterator for res that adds elements at the end of the container, entending
+    container to make room for them. This save us from first having to allocate a fixed amount of space and then filling i1.t.
+    back_inserter eliminate the C-style error-prone realloc().
+    Standard-library list has a move constructor that make return res by value efficient.
+    Q: how move constructor is selected instead of copy?
+
+  * Any particular iterator is an object of some type. What is common for all iterators i their semantics and the nmaing of their
    operations. For example, ++ yields an iterator that refers to the next element, * yields the element to which the iterator refers.
    User rarely need to know that type of a specific iterator, each container "knows" its iterator types and makes them available 
    under the conventional names iterator and const_iterator. 
 
-  2. Stream iterators
+  *  Stream iterators
       Similar to container, iterator can be applied to input/output as well.
 
-  3. To make ostream_iterator, we need specity
+  *  To make ostream_iterator, we need specity
 
       which stream will be used --> cout
       type of the object --> string
@@ -520,19 +523,20 @@
          *oo = "World!\n"; // meaning cout << "wold\n"
       }
 
-  4. istream_iterator need specify the stream to be used and the type of values expected.
+  *  istream_iterator need specify the stream to be used and the type of values expected.
       istream_iterator<string> ii{cin};
       Input iterators are used in pairs representing a sequence, se we must provide an istream_iterator
       to indicate the end of input. This is the default istream_iterator:
          istream_iterator<string> eos{};
 
-  5. Typically, istream_iterator/ostream_iterator are not used directly. Instead, they are provided as arguments to 
+  * Typically, istream_iterator/ostream_iterator are not used directly. Instead, they are provided as arguments to 
       algorithms. For example, we can write a simle program:
          read a file
          sort the words
          eliminste duplicates
          write the result to another file.
 
+        ~~~~
         int main()
         {
             string from, to;
@@ -549,8 +553,10 @@
             sort(b.being,b.end());
             unique_copy(b.begin(), b.end(), oo);
             return !is.eof() || !os;
-         }
+        }
+        ~~~~
 
+        ```
          Use set to avoid sort/remove_duplication.
          int main()
          {
@@ -562,8 +568,9 @@
               copy(b.begin(),b.end(),ostream_iterator<string>{os,"\n"}); // copy to output
               return !is.eof() || !os; // retur n error state (§1.3, §8.4)
          } 
+        ```
 
-  6. find element from a map which meet a special requirement (predicates).
+  * find element from a map which meet a special requirement (predicates).
         search a map for the first value larger than 42.
 
          version 1.
@@ -581,7 +588,7 @@
          version II (lambda):
          auto p = ﬁnd_if(m.begin(), m.end(), [](const pair<string,int>& r) { return r.second>42; }); 
 
-   7: 
+  * 
       p=nd(b,e ,x) p is the ﬁrst p in [b:e) so that *p==x
       p=nd_if(b,e ,f) p is the ﬁrst p in [b:e) so that f(*p)==true 
       n=count(b,e ,x) n is the number of elements *q in [b:e) so that ∗q==x 
@@ -599,16 +606,16 @@
       
       these algorithms and many more can be applied to elements of containers, strings, and built-in arrays.
 
-  8. An STL algorithm operates on one or more sequences.
-  9. An input sequence is half-open and defined by a pair of iterator.
-  10. Algorithms do not directly add or subtract elemens from their argument sequences.
-  11. Use predicates and other function objects to give standard algorithms a wider range of meanings. 
-  12. A predicate must not modify its argument.
+  * An STL algorithm operates on one or more sequences.
+  * An input sequence is half-open and defined by a pair of iterator.
+  * Algorithms do not directly add or subtract elemens from their argument sequences.
+  * Use predicates and other function objects to give standard algorithms a wider range of meanings. 
+  * A predicate must not modify its argument.
 
 ## Utilities
    1. The standard library components are designed not to leak resources. 
    2. In <memory> standard library provide:
-   3. ** unique_ptr: represent unique ownership  ---> moved
+   3. ** unique_ptr: represent unique ownership  ---> moved **
       void (int i, int j){
          X *p = new X;
          unique_ptr<X> sp {new X};
@@ -623,11 +630,13 @@
          delte p; // this may not work in case of exception, early return..
       }
    
-   4. ** shared_ptr: represent shared ownership ----> copied. The shared_ptrS for an object share ownership of an object and
+   4. ** shared_ptr: represent shared ownership ----> copied. **
+        The shared_ptrS for an object share ownership of an object and
                   that object is destroyed when the last of its shared_ptrS is destroyed. 
         void f(shared_ptr<fstream>);
         void g(shared_ptr<fstream>);
 
+        ~~~~~
         void user(const string& name, ios_base::openmode mode){
            shared_ptr<fstream> fp {new fstream(name, mode))};
            if (!*fp) throw No_file{};
@@ -636,6 +645,7 @@
            g(fp);
            //..
         }
+        ~~~~~
 
         Now the file opened by fp-s constructor will be closed by the last function to (explicitly or implicitly) destroy a copy of fp.
         Not that f() or g() may spawn a task holding a copy of fp or in some other way store a copy that outlives user(). Thus, shared_ptr
