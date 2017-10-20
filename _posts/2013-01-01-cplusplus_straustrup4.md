@@ -1,110 +1,114 @@
+## C++ programming language by Barne Stroustrup (4th edition)
+## The Preface
+
+
+
 ## A Tutorial of C++ by Barne Stroustrup.
 
 ## The basic
 
-1. C++ is statical language.
-  * Compiler has to know all variable type when in compile/run? time.
+  1. C++ is statical language.
+    * Compiler has to know all variable type when in compile/run? time.
 
-2. A non-zero return value from main() indicates a failure.
-  * If no value returned, the system will receive a value indicating successfully completion. 
-   Not every system and execution environment make use of return value.
+  2. A non-zero return value from main() indicates a failure.
+    * If no value returned, the system will receive a value indicating successfully completion. 
+     Not every system and execution environment make use of return value.
 
-3. A function declariation may contains arguments which is helpful for reading.
-  * `int f(int input)` is same as `f(int) `
-  * The compiler will simply ignore the argument unless the declaration is also a function definition.
-4. For class member function, the name of the class is also part of the function type ---> ?????
-5. Scope and life time
-  * local scope, class scope, namespace scope, 
-  * for a namespace object, the point of destruction is the end of the program.
-  * a object created by "new" "lives" until destroyed by "delete"
-6. constexpr: evaluated at compile time.   
-    ----> ?????? We allow a constexpr function to be called with non-constant-expression arguments
-    in contexts that do not require constant expressions, so that we don’t have to define essentially
-    the same function twice: once for constant expressions and once for variables
-7. int v[] = {0,1,2,3,4};
-  > `for (auto a :v) count << v[a];`
-8. Prefer the {} initializer syntax for declarations with a named type; Prefer the = syntax for the initialization in declarations using auto
-9. Use nullptr rather than 0 or NULL
-
+  3. A function declariation may contains arguments which is helpful for reading.
+    * `int f(int input)` is same as `f(int) `
+    * The compiler will simply ignore the argument unless the declaration is also a function definition.
+  4. For class member function, the name of the class is also part of the function type ---> ?????
+  5. Scope and life time
+    * local scope, class scope, namespace scope, 
+    * for a namespace object, the point of destruction is the end of the program.
+    * a object created by "new" "lives" until destroyed by "delete"
+  6. constexpr: evaluated at compile time.   
+      ----> ?????? We allow a constexpr function to be called with non-constant-expression arguments
+      in contexts that do not require constant expressions, so that we don’t have to define essentially
+      the same function twice: once for constant expressions and once for variables
+  7. int v[] = {0,1,2,3,4};
+    > `for (auto a :v) count << v[a];`
+  8. Prefer the {} initializer syntax for declarations with a named type; Prefer the = syntax for the initialization in declarations using auto
+  9. Use nullptr rather than 0 or NULL
 
 ## User defined Types
-
-A struct is simply a class with its members public by default.
+  A struct is simply a class with its members public by default.
 
 ## Modularity
-1. C++ offers namespaces as a mechanism for expressing that some declaration belong together and their 
-  names should clash with other names.
 
-2. void use(int sz) **noexcept** 
-  * A function should never thrown an exception can be declared "noexcept".
-  * I all good intend and handling fails, so that the function still throws, the standard library function "terminate" is called immediately. 
+  1. C++ offers namespaces as a mechanism for expressing that some declaration belong together and their 
+    names should clash with other names.
 
-3. A function has no way of completing its assigned task after an exception is thrown. 
-  * "handling" exception simply means doming some minimal local cleanup and rethrowning.
-  * when "new" can't find memory to allocate, std::bad_alloc is thrown.
+  2. void use(int sz) **noexcept** 
+    * A function should never thrown an exception can be declared "noexcept".
+    * If all good intend and handling fails, so that the function still throws, the standard library function "terminate" is called immediately. 
 
-4. static_assert<A,S>
-  * prints S as compiler error message if A is not true
+  3. A function has no way of completing its assigned task after an exception is thrown. 
+    * "handling" exception simply means doming some minimal local cleanup and rethrowning.
+    * when "new" can't find memory to allocate, std::bad_alloc is thrown.
 
-5. Avoid non-inline function definition in headers.
+  4. static_assert<A,S>
+    * prints S as compiler error message if A is not true
 
-6. let constructor establish an invariant, and throw if it cannot ------>???????
+  5. Avoid non-inline function definition in headers.
 
-7. design error-handling strategy around invariants. ------>??????
+  6. let constructor establish an invariant, and throw if it cannot ------>???????
+
+  7. design error-handling strategy around invariants. ------>??????
 
 ## Class
 
-1. RAII: Resource Acquisition Is Initialization.
-   * Avoid naked "new" and "delete"
+  1. RAII: Resource Acquisition Is Initialization.
+     * Avoid naked "new" and "delete"
 
-2. <static_cast><int>(list.size())
-   * static_cast does not check the value it is converting ---->??????
+  2. <static_cast><int>(list.size())
+     * static_cast does not check the value it is converting --??????
 
-3. A container is an object holding a collection of elements, 
+  3. A container is an object holding a collection of elements, 
 
-4. dynamic_cast: "is kind of" and "is instance of" operation
-   * If the object pointed to by the argument of dynmaic_cast is not of the expected type, nullptr returned. Usually not failure
- when a different type is unacceptable, we can simple dynamic_cast to a reference type. If the object is not of the expected
- type, bad_cast is thrown.---> failure
+  4. dynamic_cast: "is kind of" and "is instance of" operation
+     * If the object pointed to by the argument of dynmaic_cast is not of the expected type, nullptr returned. Usually not failure
+   when a different type is unacceptable, we can simple dynamic_cast to a reference type. If the object is not of the expected
+   type, bad_cast is thrown.  --failure
 
-5. Use unique_ptr to avoid naked pointer.
+  5. Use unique_ptr to avoid naked pointer.
 
-6. && means rvlue reference and is reference to which can bind an rvalue.
-   * A move constructor doesnot take const argument, after all, a move constructor is supposed to remove the value from its argument. 
-   * A move operator is applied when an rvalue reference is used to an initializer or as the right-hand side of an assignment.
-   * when the programmer knows that a value will not be used again, but the compiler cannot be smart enough to figure that out, the programmer can be specific: y = std::move(x);
+  6. && means rvlue reference and is reference to which can bind an rvalue.
+     * A move constructor doesnot take const argument, after all, a move constructor is supposed to remove the value from its argument. 
+     * A move operator is applied when an rvalue reference is used to an initializer or as the right-hand side of an assignment.
+     * when the programmer knows that a value will not be used again, but the compiler cannot be smart enough to figure that out, the programmer can be specific: y = std::move(x);
 
-7. Essential Operations
-   * **Constructors, destructors, copy operation, move operations** 
-   * If a class X has a destuctor that performs a nontrivial task, such as free-store deallocation or lock release, the class is likely to need the full complement of functions:
+  7. Essential Operations
+     * **Constructors, destructors, copy operation, move operations** 
+     * If a class X has a destuctor that performs a nontrivial task, such as free-store deallocation or lock release, the class is likely to need the full complement of functions:
 
-> 			X(Sometype);	// "ordinary constructor" create an object
-> 			X(); 				// default constructor
-> 			X(const X&)		// copy constructor
-> 			X(const X&&)	// move constructor
-> 			X& operator=(const X&) 	// conpy assignment: clean up target and copy
-> 			X& operator=(X&&) 		// move assignment: clean up target and move
-> 			~X() 				// destructor: clean up
->       Except "ordinary constructor", these special member functions will be generated by the compiler as needed.
-> 			to be explicit about generating default implementation:
-> 	    Y(const Y&) = default;
->       **if you are explicit about some defaults, other default definitions will not be generated**
+  > 			X(Sometype);	// "ordinary constructor" create an object
+  > 			X(); 				// default constructor
+  > 			X(const X&)		// copy constructor
+  > 			X(const X&&)	// move constructor
+  > 			X& operator=(const X&) 	// copy assignment: clean up target and copy
+  > 			X& operator=(X&&) 		// move assignment: clean up target and move
+  > 			~X() 				// destructor: clean up
+  >       Except "ordinary constructor", these special member functions will be generated by the compiler as needed.
+  > 			to be explicit about generating default implementation:
+  > 	    Y(const Y&) = default;
+  >       **if you are explicit about some defaults, other default definitions will not be generated**
 
-		There are five situations in which an object is copied or  moved:
-			As the source of an assignment
-			As an object initializer
-			As a function argument
-			As a function return type
-			As an exception
+      There are five situations in which an object is copied or  moved:
+        As the source of an assignment
+        As an object initializer
+        As a function argument
+        As a function return type
+        As an exception
 
-		When a class has a pointer or a reference member, it is usually a good idea to be explicit about 
-		copy of move operator. The reason is that a pointer or reference will point to something that the
-		class needs to delete, in which the default copy would be wrong, or point to something that the
-		class must not delete, in which case a reader of the code would like to know that.
+      When a class has a pointer or a reference member, it is usually a good idea to be explicit about 
+      copy of move operator. The reason is that a pointer or reference will point to something that the
+      class needs to delete, in which the default copy would be wrong, or point to something that the
+      class must not delete, in which case a reader of the code would like to know that.
 
-		explicit Vector(int s) 	// non implicit conversion from int to vector
-			--> Vector v1(7); 	//OK v1 has 7 elements
-			--> Vector v2 = 7;	//Error, no implicit conversion from int to vector
+      explicit Vector(int s) 	// non implicit conversion from int to vector
+        --> Vector v1(7); 	//OK v1 has 7 elements
+        --> Vector v2 = 7;	//Error, no implicit conversion from int to vector
 
 	8. Resource management.
 		std::vector<thread> my_threads;
@@ -133,12 +137,12 @@ A struct is simply a class with its members public by default.
 
 	10. Make a function a member only if needs direct access to the representation of a class.
 	11. declare a member function const if it does not modify the state of its object.
-	12. If a class is a container, give it an initializer-list constructor   ---->??????
-	13. An abstract class typically doesnot need a constructor but a destructor which is virtual-------> ?????
+	12. If a class is a container, give it an initializer-list constructor   ---??????
+	13. An abstract class typically doesnot need a constructor but a destructor which is virtual------ ?????
 	14. access polymorphic objects through pointers and references.
 	15. A class with a virtual function should have a virtual destructor.
 	16. A function in derived class overrides a virtual function in a base. to make it clear, explicitly overidding:
-		void draw() const override; ---> tells that draw is virtual function in supperclass.
+		void draw() const override; -- tells that draw is virtual function in supperclass.
 	17. return container by value (relying on move for efficiency)
 	18. by default, declare single-argument constructor explicit.
 	19. if a class is a resource handle, it needs a constructor, a destructor, and non-default copy operations.
@@ -409,7 +413,6 @@ A struct is simply a class with its members public by default.
 	
 ## Container
 	1. A class with the main purpose of holding objects is commonly called container.
-
 	2. vector: use it as default container. 
 		A vector is a sequence of elements of a given type. The elements are stored contiguously in memory.
 		The standard-library vector has members capacity(), push_back(), reserve()..
@@ -438,7 +441,6 @@ A struct is simply a class with its members public by default.
 							const T& operator[](int i) const // range check const objects; §4.2.1
 							{ return vector<T>::at(i); }
 					 };
-
 
 	3. List: a double-linked list:   
            3.5 forward_list: single-linked list.
@@ -494,7 +496,7 @@ A struct is simply a class with its members public by default.
 	container to make room for them. This save us from first having to allocate a fixed amount of space and then filling i1.t.
 	back_inserter eliminate the C-style error-prone realloc().
 	Standard-library list has a move constructor that make return res by value efficient.
-	Q: --> how move constructor is selected instead of copy?
+	Q: how move constructor is selected instead of copy?
 
   1. Any particular iterator is an object of some type. What is common for all iterators i their semantics and the nmaing of their
    operations. For example, ++ yields an iterator that refers to the next element, * yields the element to which the iterator refers.
@@ -580,8 +582,8 @@ A struct is simply a class with its members public by default.
          auto p = ﬁnd_if(m.begin(), m.end(), [](const pair<string,int>& r) { return r.second>42; }); 
 
    7: 
-      p=ﬁnd(b,e ,x) p is the ﬁrst p in [b:e) so that *p==x
-      p=ﬁnd_if(b,e ,f) p is the ﬁrst p in [b:e) so that f(*p)==true 
+      p=nd(b,e ,x) p is the ﬁrst p in [b:e) so that *p==x
+      p=nd_if(b,e ,f) p is the ﬁrst p in [b:e) so that f(*p)==true 
       n=count(b,e ,x) n is the number of elements *q in [b:e) so that ∗q==x 
       n=count_if(b,e ,f) n is the number of elements *q in [b:e) so that f(*q,x) 
       replace(b,e ,v,v2) Replace elements ∗q in [b:e) so that *q==v by v2 replace_if(b,e ,f,v2) 
