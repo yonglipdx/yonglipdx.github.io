@@ -4,7 +4,7 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic 13
+## The basic 14
 
   * C++ is statical language.
     - Compiler has to know all variable type when in compile/run? time.
@@ -460,10 +460,11 @@
 
 ## Algorithms
 
-     void f(vector<Entry>& vec, list<entry>& lst){
+    ```
+    void f(vector<Entry>& vec, list<entry>& lst){
         sort(vec.begin(), vec.end()));
         unique_copy(vec.begin(), vec.end(), lst.begin());
-     }
+    }
 
     in this example, to write the output to list, we need specify the lst element to be written. if more elements to 
     be written, the elements followed the initial element will be overwritten. Thus, to avoid error, 1st must have as 
@@ -484,113 +485,112 @@
     back_inserter eliminate the C-style error-prone realloc().
     Standard-library list has a move constructor that make return res by value efficient.
     Q: how move constructor is selected instead of copy?
+    ```
 
-  * Any particular iterator is an object of some type. What is common for all iterators i their semantics and the nmaing of their
-   operations. For example, ++ yields an iterator that refers to the next element, * yields the element to which the iterator refers.
-   User rarely need to know that type of a specific iterator, each container "knows" its iterator types and makes them available 
-   under the conventional names iterator and const_iterator. 
+    * Any particular iterator is an object of some type. What is common for all iterators i their semantics and the nmaing of their operations. For example, ++ yields an iterator that refers to the next element, * yields the element to which the iterator refers.  User rarely need to know that type of a specific iterator, each container "knows" its iterator types and makes them available under the conventional names iterator and const_iterator. 
 
-  *  Stream iterators
-      Similar to container, iterator can be applied to input/output as well.
+    *  Stream iterators
+        - Similar to container, iterator can be applied to input/output as well.
 
-  *  To make ostream_iterator, we need specity
+    *  To make ostream_iterator, we need specity
 
-      which stream will be used --> cout
-      type of the object --> string
+        - which stream will be used --> cout
+        - type of the object --> string
+        - the effect os assigning to *oo is to write te assigned value to cout. for example:
 
-      the effect os assigning to *oo is to write te assigned value to cout. for example:
+            ```
+            ostream_iterator<string> oo{cout}
+            int main(){
+               *oo = "Hello";  // meaning cout << "Hello"
+               ++oo;
+               *oo = "World!\n"; // meaning cout << "wold\n"
+            }
+            ```
 
-      ostream_iterator<string> oo{cout}
-      int main(){
-         *oo = "Hello";  // meaning cout << "Hello"
-         ++oo;
-         *oo = "World!\n"; // meaning cout << "wold\n"
-      }
+    *  istream_iterator need specify the stream to be used and the type of values expected.
+        - istream_iterator<string> ii{cin};
+        - Input iterators are used in pairs representing a sequence, se we must provide an istream_iterator
+        - to indicate the end of input. This is the default istream_iterator:
+           * istream_iterator<string> eos{};
 
-  *  istream_iterator need specify the stream to be used and the type of values expected.
-      istream_iterator<string> ii{cin};
-      Input iterators are used in pairs representing a sequence, se we must provide an istream_iterator
-      to indicate the end of input. This is the default istream_iterator:
-         istream_iterator<string> eos{};
+    * Typically, istream_iterator/ostream_iterator are not used directly. Instead, they are provided as arguments to algorithms. For example, we can write a simle program:
+          ```
+          read a file
+          sort the words
+          eliminste duplicates
+          write the result to another file.
 
-  * Typically, istream_iterator/ostream_iterator are not used directly. Instead, they are provided as arguments to 
-      algorithms. For example, we can write a simle program:
-         read a file
-         sort the words
-         eliminste duplicates
-         write the result to another file.
+          int main()
+          {
+              string from, to;
+              cin >> from >> to;
 
-        ~~~~
-        int main()
-        {
-            string from, to;
-            cin >> from >> to;
+              ifstream is{from};  //ifstream is an istream that can be attached to a file
+              istream_iterator<string> ii{s};
+              istream_iterator<stinr> eos{};
 
-            ifstream is{from};  //ifstream is an istream that can be attached to a file
-            istream_iterator<string> ii{s};
-            istream_iterator<stinr> eos{};
+              ofstream os{to};  // ofstream is an ostream that can be attached to a file
+              ostream_iterator<string> oo{os, "\n"}; // "\n" to delimit output value. 
 
-            ofstream os{to};  // ofstream is an ostream that can be attached to a file
-            ostream_iterator<string> oo{os, "\n"}; // "\n" to delimit output value. 
+              vector<string> b{ii,eos};
+              sort(b.being,b.end());
+              unique_copy(b.begin(), b.end(), oo);
+              return !is.eof() || !os;
+          }
+          ```
 
-            vector<string> b{ii,eos};
-            sort(b.being,b.end());
-            unique_copy(b.begin(), b.end(), oo);
-            return !is.eof() || !os;
-        }
-        ~~~~
+          ```
+           Use set to avoid sort/remove_duplication.
+           int main()
+           {
+               string from, to; 
+               cin >> from >> to; // get source and target ﬁle names
+                ifstream is {from}; // input stream for ﬁle "from" 
+                ofstream os {to}; // output stream for ﬁle "to"
+                set<string> b {istream_iterator<string>{is},istream_iterator<string>{}}; // read input
+                copy(b.begin(),b.end(),ostream_iterator<string>{os,"\n"}); // copy to output
+                return !is.eof() || !os; // retur n error state (§1.3, §8.4)
+           } 
+          ```
+
+    * find element from a map which meet a special requirement (predicates). search a map for the first value larger than 42.
 
         ```
-         Use set to avoid sort/remove_duplication.
-         int main()
-         {
-             string from, to; 
-             cin >> from >> to; // get source and target ﬁle names
-              ifstream is {from}; // input stream for ﬁle "from" 
-              ofstream os {to}; // output stream for ﬁle "to"
-              set<string> b {istream_iterator<string>{is},istream_iterator<string>{}}; // read input
-              copy(b.begin(),b.end(),ostream_iterator<string>{os,"\n"}); // copy to output
-              return !is.eof() || !os; // retur n error state (§1.3, §8.4)
-         } 
+        version 1.
+        void f(map<string,int>& m) {
+          auto p = ﬁnd_if(m.begin(),m.end(),Greater_than{42});
+          // ... 
+        } Here, Greater_than is a function object (§5.5) holding the value (42) to be compared against:
+        struct Greater_than { int val;
+        Greater_than(int v) : val{v} { } 
+        bool operator()(const pair<string,int>& r) { return r.second>val; }
+        };
+
+        version 2 (lambda):
+        auto p = ﬁnd_if(m.begin(), m.end(), [](const pair<string,int>& r) { return r.second>42; }); 
+
+        p=nd(b,e ,x) p is the ﬁrst p in [b:e) so that *p==x
+        p=nd_if(b,e ,f) p is the ﬁrst p in [b:e) so that f(*p)==true 
+        n=count(b,e ,x) n is the number of elements *q in [b:e) so that ∗q==x 
+        n=count_if(b,e ,f) n is the number of elements *q in [b:e) so that f(*q,x) 
+        replace(b,e ,v,v2) Replace elements ∗q in [b:e) so that *q==v by v2 replace_if(b,e ,f,v2) 
+        Replace elements *q in [b:e) so that f(*q) by v2 p=copy(b,e ,out)
+        Copy [b:e) to [out:p) p=copy_if(b,e ,out,f) 
+        Copy elements *q from [b:e) so that f(*q) to [out:p) p=move(b,e ,out)
+        Move [b:e) to [out:p) p=unique_copy(b,e ,out) 
+        Copy [b:e) to [out:p); don’t copy adjacent duplicates
+        sor t(b,e) Sort elements of [b:e) using < as the sorting criterion 
+        sor t(b,e,f) Sort elements of [b:e) using f as the sorting criterion 
+        (p1,p2)=equal_rang e(b,e ,v) [p1:p2) is the subsequence of the sorted sequence [b:e) with the value v; basically a binary search for v 
+        p=merge(b,e ,b2,e2,out) Merge two sorted sequences [b:e) and [b2:e2) into [out:p)
+        these algorithms and many more can be applied to elements of containers, strings, and built-in arrays.
         ```
 
-  * find element from a map which meet a special requirement (predicates). search a map for the first value larger than 42.
-
-version 1.
-void f(map<string,int>& m) {
-  auto p = ﬁnd_if(m.begin(),m.end(),Greater_than{42});
-  // ... 
-} Here, Greater_than is a function object (§5.5) holding the value (42) to be compared against:
-struct Greater_than { int val;
-  Greater_than(int v) : val{v} { } 
-  bool operator()(const pair<string,int>& r) { return r.second>val; }
-  };
-
-  version 2 (lambda):
-  auto p = ﬁnd_if(m.begin(), m.end(), [](const pair<string,int>& r) { return r.second>42; }); 
-
-  p=nd(b,e ,x) p is the ﬁrst p in [b:e) so that *p==x
-  p=nd_if(b,e ,f) p is the ﬁrst p in [b:e) so that f(*p)==true 
-  n=count(b,e ,x) n is the number of elements *q in [b:e) so that ∗q==x 
-  n=count_if(b,e ,f) n is the number of elements *q in [b:e) so that f(*q,x) 
-  replace(b,e ,v,v2) Replace elements ∗q in [b:e) so that *q==v by v2 replace_if(b,e ,f,v2) 
-  Replace elements *q in [b:e) so that f(*q) by v2 p=copy(b,e ,out)
-  Copy [b:e) to [out:p) p=copy_if(b,e ,out,f) 
-  Copy elements *q from [b:e) so that f(*q) to [out:p) p=move(b,e ,out)
-  Move [b:e) to [out:p) p=unique_copy(b,e ,out) 
-  Copy [b:e) to [out:p); don’t copy adjacent duplicates
-  sor t(b,e) Sort elements of [b:e) using < as the sorting criterion 
-  sor t(b,e,f) Sort elements of [b:e) using f as the sorting criterion 
-  (p1,p2)=equal_rang e(b,e ,v) [p1:p2) is the subsequence of the sorted sequence [b:e) with the value v; basically a binary search for v 
-  p=merge(b,e ,b2,e2,out) Merge two sorted sequences [b:e) and [b2:e2) into [out:p)
-
-  these algorithms and many more can be applied to elements of containers, strings, and built-in arrays.
-
-  * An STL algorithm operates on one or more sequences.
-  * An input sequence is half-open and defined by a pair of iterator.
-  * Algorithms do not directly add or subtract elemens from their argument sequences.
-  * Use predicates and other function objects to give standard algorithms a wider range of meanings. 
-  * A predicate must not modify its argument.
+    * An STL algorithm operates on one or more sequences.
+    * An input sequence is half-open and defined by a pair of iterator.
+    * Algorithms do not directly add or subtract elemens from their argument sequences.
+    * Use predicates and other function objects to give standard algorithms a wider range of meanings. 
+    * A predicate must not modify its argument.
 
 ## Utilities
    1. The standard library components are designed not to leak resources. 
