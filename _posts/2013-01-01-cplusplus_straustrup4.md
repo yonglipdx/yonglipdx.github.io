@@ -4,7 +4,7 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic 4
+## The basic 5
 
   * C++ is statical language.
     - Compiler has to know all variable type when in compile/run? time.
@@ -36,22 +36,16 @@
 ## Modularity
 
   1. C++ offers namespaces as a mechanism for expressing that some declaration belong together and their names should clash with other names.
-
   2. void use(int sz) **noexcept** 
-    * A function should never thrown an exception can be declared "noexcept".
-    * If all good intend and handling fails, so that the function still throws, the standard library function "terminate" is called immediately. 
-
+    1. function should never thrown an exception can be declared "noexcept".
+    2. for all good intend and handling fails, so that the function still throws, the standard library function "terminate" is called immediately. 
   3. A function has no way of completing its assigned task after an exception is thrown. 
-    * "handling" exception simply means doming some minimal local cleanup and rethrowning.
-    * when "new" can't find memory to allocate, std::bad_alloc is thrown.
-
+    1. "handling" exception simply means doming some minimal local cleanup and rethrowning.
+    2. when "new" can't find memory to allocate, std::bad_alloc is thrown.
   4. static_assert<A,S>
-    * prints S as compiler error message if A is not true
-
+    1. prints S as compiler error message if A is not true
   5. Avoid non-inline function definition in headers.
-
   6. let constructor establish an invariant, and throw if it cannot ------>???????
-
   7. design error-handling strategy around invariants. ------>??????
 
 ## Class
