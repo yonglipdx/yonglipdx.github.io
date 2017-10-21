@@ -6,29 +6,29 @@
 
 ## The basic 2
 
-1. C++ is statical language.
-   Compiler has to know all variable type when in compile/run? time.
+  * C++ is statical language.
+    - Compiler has to know all variable type when in compile/run? time.
 
-2. A non-zero return value from main() indicates a failure.
-* If no value returned, the system will receive a value indicating successfully completion. 
-  * Not every system and execution environment make use of return value.
+  * A non-zero return value from main() indicates a failure.
+  * If no value returned, the system will receive a value indicating successfully completion. 
+    - Not every system and execution environment make use of return value.
 
-3. A function declariation may contains arguments which is helpful for reading.
-  * `int f(int input)` is same as `f(int) `
-  * The compiler will simply ignore the argument unless the declaration is also a function definition.
-4. For class member function, the name of the class is also part of the function type ---> ?????
-5. Scope and life time
-  * local scope, class scope, namespace scope, 
-  * for a namespace object, the point of destruction is the end of the program.
-  * a object created by "new" "lives" until destroyed by "delete"
-6. constexpr: evaluated at compile time.   
-    ----> ?????? We allow a constexpr function to be called with non-constant-expression arguments
-    in contexts that do not require constant expressions, so that we don’t have to define essentially
-    the same function twice: once for constant expressions and once for variables
-7. int v[] = {0,1,2,3,4};
-  > `for (auto a :v) count << v[a];`
-8. Prefer the {} initializer syntax for declarations with a named type; Prefer the = syntax for the initialization in declarations using auto
-9. Use nullptr rather than 0 or NULL
+  * A function declariation may contains arguments which is helpful for reading.
+    - `int f(int input)` is same as `f(int) `
+    - The compiler will simply ignore the argument unless the declaration is also a function definition.
+  * For class member function, the name of the class is also part of the function type ---> ?????
+  * Scope and life time
+    - local scope, class scope, namespace scope, 
+    - for a namespace object, the point of destruction is the end of the program.
+    - a object created by "new" "lives" until destroyed by "delete"
+  * constexpr: evaluated at compile time.   
+      ----> ?????? We allow a constexpr function to be called with non-constant-expression arguments
+      in contexts that do not require constant expressions, so that we don’t have to define essentially
+      the same function twice: once for constant expressions and once for variables
+  * int v[] = {0,1,2,3,4};
+    > `for (auto a :v) count << v[a];`
+  * Prefer the {} initializer syntax for declarations with a named type; Prefer the = syntax for the initialization in declarations using auto
+  * Use nullptr rather than 0 or NULL
 
 ## User defined Types
   * A struct is simply a class with its members public by default.
