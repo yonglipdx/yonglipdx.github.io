@@ -4,7 +4,7 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic 6
+## The basic 8
 
   * C++ is statical language.
     - Compiler has to know all variable type when in compile/run? time.
@@ -16,18 +16,18 @@
   * A function declariation may contains arguments which is helpful for reading.
     - `int f(int input)` is same as `f(int) `
     - The compiler will simply ignore the argument unless the declaration is also a function definition.
-  * For class member function, the name of the class is also part of the function type ---> ?????
+  * For class member function, the name of the class is also part of the function type ???
   * Scope and life time
     - local scope, class scope, namespace scope, 
     - for a namespace object, the point of destruction is the end of the program.
     - a object created by "new" "lives" until destroyed by "delete"
   * constexpr: evaluated at compile time.   
-      ----> ?????? We allow a constexpr function to be called with non-constant-expression arguments
+      We allow a constexpr function to be called with non-constant-expression arguments ???
       in contexts that do not require constant expressions, so that we don’t have to define essentially
       the same function twice: once for constant expressions and once for variables
   * int v[] = {0,1,2,3,4};
     > `for (auto a :v) count << v[a];`
-  * Prefer the {} initializer syntax for declarations with a named type; Prefer the = syntax for the initialization in declarations using auto
+  * Prefer the _{}_ initializer syntax for declarations with a named type; Prefer the _=_ syntax for the initialization in declarations using auto
   * Use nullptr rather than 0 or NULL
 
 ## User defined Types
@@ -37,16 +37,16 @@
 
   1. C++ offers namespaces as a mechanism for expressing that some declaration belong together and their names should clash with other names.
   2. void use(int sz) **noexcept** 
-    1. function should never thrown an exception can be declared "noexcept".
-    2. for all good intend and handling fails, so that the function still throws, the standard library function "terminate" is called immediately. 
+      1. function should never thrown an exception can be declared "noexcept".
+      2. for all good intend and handling fails, so that the function still throws, the standard library function "terminate" is called immediately. 
   3. A function has no way of completing its assigned task after an exception is thrown. 
-    1. "handling" exception simply means doming some minimal local cleanup and rethrowning.
-    2. when "new" can't find memory to allocate, std::bad_alloc is thrown.
+    * "handling" exception simply means doming some minimal local cleanup and rethrowning.
+    * when "new" can't find memory to allocate, std::bad_alloc is thrown.
   4. static_assert<A,S>
     1. prints S as compiler error message if A is not true
   5. Avoid non-inline function definition in headers.
-  6. let constructor establish an invariant, and throw if it cannot ------>???????
-  7. design error-handling strategy around invariants. ------>??????
+  6. let constructor establish an invariant, and throw if it cannot ???
+  7. design error-handling strategy around invariants. ???
 
 ## Class
   1. RAII: Resource Acquisition Is Initialization.
