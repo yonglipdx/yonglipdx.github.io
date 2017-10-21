@@ -4,7 +4,7 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic 8
+## The basic 9
 
   * C++ is statical language.
     - Compiler has to know all variable type when in compile/run? time.
@@ -40,10 +40,10 @@
       1. function should never thrown an exception can be declared "noexcept".
       2. for all good intend and handling fails, so that the function still throws, the standard library function "terminate" is called immediately. 
   3. A function has no way of completing its assigned task after an exception is thrown. 
-    * "handling" exception simply means doming some minimal local cleanup and rethrowning.
-    * when "new" can't find memory to allocate, std::bad_alloc is thrown.
+      * "handling" exception simply means doming some minimal local cleanup and rethrowning.
+      * when "new" can't find memory to allocate, std::bad_alloc is thrown.
   4. static_assert<A,S>
-    1. prints S as compiler error message if A is not true
+      * prints S as compiler error message if A is not true
   5. Avoid non-inline function definition in headers.
   6. let constructor establish an invariant, and throw if it cannot ???
   7. design error-handling strategy around invariants. ???
