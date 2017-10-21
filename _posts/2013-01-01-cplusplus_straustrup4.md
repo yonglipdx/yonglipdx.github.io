@@ -1,5 +1,16 @@
 ## C++ programming language by Barne Stroustrup (4th edition)
-## The Preface
+
+## Type and declarations
+  * freestanding implementation are meant for code running with only the most minimal operating system support.
+  * integers can be implicitly converted to boolean. 
+    - bool b = 7 // OK
+    - bool b {i} // error: narrowing
+    - bool b {i != 0} // OK
+  * It safe to assume that implementation character set includes the decimal digits, 26 alphabetic characters of English, and some of the basic punctuation characters.
+  * It unsafe to assume:
+    - There are no more than 127 characters. (some has 255)
+    - All english chracters
+    - the alphabetic characters are contiguous. (EBCDIC leaves a gap between "i" and "j")
 
 
 ## A Tutorial of C++ by Barne Stroustrup.
@@ -605,7 +616,7 @@
          if (j < 77) return;     // may return "early"
 
          p->do_sth();            // may throw an exception
-         sp->do_sth;             // may throw an exception
+         sp->do_sth;             // may throw an 
          //
 
          delte p; // this may not work in case of exception, early return..
