@@ -4,7 +4,7 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic 2
+## The basic 4
 
   * C++ is statical language.
     - Compiler has to know all variable type when in compile/run? time.
