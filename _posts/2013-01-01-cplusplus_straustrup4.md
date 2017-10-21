@@ -4,7 +4,7 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic 11
+## The basic 12
 
   * C++ is statical language.
     - Compiler has to know all variable type when in compile/run? time.
@@ -62,7 +62,7 @@
       * A move operator is applied when an rvalue reference is used to an initializer or as the right-hand side of an assignment.
       * when the programmer knows that a value will not be used again, but the compiler cannot be smart enough to figure that out, the programmer can be specific: y = std::move(x)
   7. Essential Operations
-      * **Constructors, destructors, copy operation, move operations** 
+      * Constructors, destructors, copy operation, move operations
       * If a class X has a destuctor that performs a nontrivial task, such as free-store deallocation or lock release, the class is likely to need the full complement of functions:
 
         ```cpp
@@ -81,7 +81,7 @@
        ```cpp
        Y(const Y&) = default;
        ```
-       - if you are explicit about some defaults, other default definitions will not be generated**
+      * if you are explicit about some defaults, other default definitions will not be generated**
 
       * There are five situations in which an object is copied or  moved:
           - As the source of an assignment
