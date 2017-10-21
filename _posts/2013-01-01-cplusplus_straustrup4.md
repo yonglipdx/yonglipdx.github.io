@@ -4,7 +4,7 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic 14
+## The basic 13
 
   * C++ is statical language.
     - Compiler has to know all variable type when in compile/run? time.
@@ -593,9 +593,10 @@
     * A predicate must not modify its argument.
 
 ## Utilities
-   1. The standard library components are designed not to leak resources. 
-   2. In <memory> standard library provide:
-   3. ** unique_ptr: represent unique ownership  ---> moved **
+    1. The standard library components are designed not to leak resources. 
+    2. In <memory> standard library provide:
+    3. ** unique_ptr: represent unique ownership  ---> moved **
+
       void (int i, int j){
          X *p = new X;
          unique_ptr<X> sp {new X};
@@ -610,7 +611,7 @@
          delte p; // this may not work in case of exception, early return..
       }
    
-   4. ** shared_ptr: represent shared ownership ----> copied. **
+    4. ** shared_ptr: represent shared ownership ----> copied. **
         The shared_ptrS for an object share ownership of an object and
                   that object is destroyed when the last of its shared_ptrS is destroyed. 
         void f(shared_ptr<fstream>);
