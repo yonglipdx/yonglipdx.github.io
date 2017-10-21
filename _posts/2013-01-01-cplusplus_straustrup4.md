@@ -4,7 +4,7 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic 12
+## The basic 13
 
   * C++ is statical language.
     - Compiler has to know all variable type when in compile/run? time.
@@ -460,11 +460,10 @@
 
 ## Algorithms
 
-  *
-    void f(vector<Entry>& vec, list<entry>& lst){
-      sort(vec.begin(), vec.end()));
-      unique_copy(vec.begin(), vec.end(), lst.begin());
-    }
+     void f(vector<Entry>& vec, list<entry>& lst){
+        sort(vec.begin(), vec.end()));
+        unique_copy(vec.begin(), vec.end(), lst.begin());
+     }
 
     in this example, to write the output to list, we need specify the lst element to be written. if more elements to 
     be written, the elements followed the initial element will be overwritten. Thus, to avoid error, 1st must have as 
@@ -555,41 +554,37 @@
          } 
         ```
 
-  * find element from a map which meet a special requirement (predicates).
-        search a map for the first value larger than 42.
+  * find element from a map which meet a special requirement (predicates). search a map for the first value larger than 42.
 
-         version 1.
+version 1.
+void f(map<string,int>& m) {
+  auto p = ﬁnd_if(m.begin(),m.end(),Greater_than{42});
+  // ... 
+} Here, Greater_than is a function object (§5.5) holding the value (42) to be compared against:
+struct Greater_than { int val;
+  Greater_than(int v) : val{v} { } 
+  bool operator()(const pair<string,int>& r) { return r.second>val; }
+  };
 
-         void f(map<string,int>& m) {
-            auto p = ﬁnd_if(m.begin(),m.end(),Greater_than{42});
-            // ... 
-         } Here, Greater_than is a function object (§5.5) holding the value (42) to be compared against:
-         
-         struct Greater_than { int val;
-            Greater_than(int v) : val{v} { } 
-            bool operator()(const pair<string,int>& r) { return r.second>val; }
-         };
+  version 2 (lambda):
+  auto p = ﬁnd_if(m.begin(), m.end(), [](const pair<string,int>& r) { return r.second>42; }); 
 
-         version II (lambda):
-         auto p = ﬁnd_if(m.begin(), m.end(), [](const pair<string,int>& r) { return r.second>42; }); 
+  p=nd(b,e ,x) p is the ﬁrst p in [b:e) so that *p==x
+  p=nd_if(b,e ,f) p is the ﬁrst p in [b:e) so that f(*p)==true 
+  n=count(b,e ,x) n is the number of elements *q in [b:e) so that ∗q==x 
+  n=count_if(b,e ,f) n is the number of elements *q in [b:e) so that f(*q,x) 
+  replace(b,e ,v,v2) Replace elements ∗q in [b:e) so that *q==v by v2 replace_if(b,e ,f,v2) 
+  Replace elements *q in [b:e) so that f(*q) by v2 p=copy(b,e ,out)
+  Copy [b:e) to [out:p) p=copy_if(b,e ,out,f) 
+  Copy elements *q from [b:e) so that f(*q) to [out:p) p=move(b,e ,out)
+  Move [b:e) to [out:p) p=unique_copy(b,e ,out) 
+  Copy [b:e) to [out:p); don’t copy adjacent duplicates
+  sor t(b,e) Sort elements of [b:e) using < as the sorting criterion 
+  sor t(b,e,f) Sort elements of [b:e) using f as the sorting criterion 
+  (p1,p2)=equal_rang e(b,e ,v) [p1:p2) is the subsequence of the sorted sequence [b:e) with the value v; basically a binary search for v 
+  p=merge(b,e ,b2,e2,out) Merge two sorted sequences [b:e) and [b2:e2) into [out:p)
 
-  * 
-      p=nd(b,e ,x) p is the ﬁrst p in [b:e) so that *p==x
-      p=nd_if(b,e ,f) p is the ﬁrst p in [b:e) so that f(*p)==true 
-      n=count(b,e ,x) n is the number of elements *q in [b:e) so that ∗q==x 
-      n=count_if(b,e ,f) n is the number of elements *q in [b:e) so that f(*q,x) 
-      replace(b,e ,v,v2) Replace elements ∗q in [b:e) so that *q==v by v2 replace_if(b,e ,f,v2) 
-      Replace elements *q in [b:e) so that f(*q) by v2 p=copy(b,e ,out)
-      Copy [b:e) to [out:p) p=copy_if(b,e ,out,f) 
-      Copy elements *q from [b:e) so that f(*q) to [out:p) p=move(b,e ,out)
-      Move [b:e) to [out:p) p=unique_copy(b,e ,out) 
-      Copy [b:e) to [out:p); don’t copy adjacent duplicates
-      sor t(b,e) Sort elements of [b:e) using < as the sorting criterion 
-      sor t(b,e,f) Sort elements of [b:e) using f as the sorting criterion 
-      (p1,p2)=equal_rang e(b,e ,v) [p1:p2) is the subsequence of the sorted sequence [b:e) with the value v; basically a binary search for v 
-      p=merge(b,e ,b2,e2,out) Merge two sorted sequences [b:e) and [b2:e2) into [out:p)
-      
-      these algorithms and many more can be applied to elements of containers, strings, and built-in arrays.
+  these algorithms and many more can be applied to elements of containers, strings, and built-in arrays.
 
   * An STL algorithm operates on one or more sequences.
   * An input sequence is half-open and defined by a pair of iterator.
