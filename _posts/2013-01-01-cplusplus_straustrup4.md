@@ -4,7 +4,7 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic 9
+## The basic 10
 
   * C++ is statical language.
     - Compiler has to know all variable type when in compile/run? time.
@@ -27,7 +27,7 @@
       the same function twice: once for constant expressions and once for variables
   * int v[] = {0,1,2,3,4};
     > `for (auto a :v) count << v[a];`
-  * Prefer the _{}_ initializer syntax for declarations with a named type; Prefer the _=_ syntax for the initialization in declarations using auto
+  * Prefer the __{}__ initializer syntax for declarations with a named type; Prefer the __=__ syntax for the initialization in declarations using auto
   * Use nullptr rather than 0 or NULL
 
 ## User defined Types
@@ -36,14 +36,14 @@
 ## Modularity
 
   1. C++ offers namespaces as a mechanism for expressing that some declaration belong together and their names should clash with other names.
-  2. void use(int sz) **noexcept** 
+  2. void use(int sz) __noexcept__ 
       1. function should never thrown an exception can be declared "noexcept".
       2. for all good intend and handling fails, so that the function still throws, the standard library function "terminate" is called immediately. 
   3. A function has no way of completing its assigned task after an exception is thrown. 
-      * "handling" exception simply means doming some minimal local cleanup and rethrowning.
+      * "handling" exception simply means doing some minimal local cleanup and rethrowning.
       * when "new" can't find memory to allocate, std::bad_alloc is thrown.
   4. static_assert<A,S>
-      * prints S as compiler error message if A is not true
+      - prints S as compiler error message if A is not true
   5. Avoid non-inline function definition in headers.
   6. let constructor establish an invariant, and throw if it cannot ???
   7. design error-handling strategy around invariants. ???
@@ -55,12 +55,8 @@
      * static_cast does not check the value it is converting
   3. A container is an object holding a collection of elements
   4. dynamic_cast: "is kind of" and "is instance of" operation
-     * If the object pointed to by the argument of dynmaic_cast is not of the expected type, nullptr returned. Usually not failure
-   when a different type is unacceptable, we can simple dynamic_cast to a reference type. If the object is not of the expected
-   type, bad_cast is thrown.  --failure
-
+     * If the object pointed to by the argument of dynamic_cast is not of the expected type, nullptr returned. Usually not failure when a different type is unacceptable, we can simple dynamic_cast to a reference type. If the object is not of the expected type, bad_cast is thrown. ???
   5. Use unique_ptr to avoid naked pointer.
-
   6. && means rvlue reference and is reference to which can bind an rvalue.
      * A move constructor doesnot take const argument, after all, a move constructor is supposed to remove the value from its argument. 
      * A move operator is applied when an rvalue reference is used to an initializer or as the right-hand side of an assignment.
