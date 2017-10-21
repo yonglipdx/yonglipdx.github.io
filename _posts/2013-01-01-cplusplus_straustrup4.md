@@ -4,10 +4,10 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic
+## The basic 1
 
   1. C++ is statical language.
-    * Compiler has to know all variable type when in compile/run? time.
+     Compiler has to know all variable type when in compile/run? time.
 
   2. A non-zero return value from main() indicates a failure.
   * If no value returned, the system will receive a value indicating successfully completion. 
