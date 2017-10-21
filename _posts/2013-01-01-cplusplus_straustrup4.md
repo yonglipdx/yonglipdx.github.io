@@ -52,10 +52,8 @@
   1. RAII: Resource Acquisition Is Initialization.
      * Avoid naked "new" and "delete"
   2. \<static_cast\>\<int\>(list.size())
-     * static_cast does not check the value it is converting ----->??????
-
-  3. A container is an object holding a collection of elements, 
-
+     * static_cast does not check the value it is converting
+  3. A container is an object holding a collection of elements
   4. dynamic_cast: "is kind of" and "is instance of" operation
      * If the object pointed to by the argument of dynmaic_cast is not of the expected type, nullptr returned. Usually not failure
    when a different type is unacceptable, we can simple dynamic_cast to a reference type. If the object is not of the expected
