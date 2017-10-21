@@ -4,7 +4,7 @@
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
-## The basic 5
+## The basic 6
 
   * C++ is statical language.
     - Compiler has to know all variable type when in compile/run? time.
@@ -49,12 +49,10 @@
   7. design error-handling strategy around invariants. ------>??????
 
 ## Class
-
   1. RAII: Resource Acquisition Is Initialization.
      * Avoid naked "new" and "delete"
-
-  2. <static_cast><int>(list.size())
-     * static_cast does not check the value it is converting --??????
+  2. \<static_cast\>\<int\>(list.size())
+     * static_cast does not check the value it is converting ----->??????
 
   3. A container is an object holding a collection of elements, 
 
