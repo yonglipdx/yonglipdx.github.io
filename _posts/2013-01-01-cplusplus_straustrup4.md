@@ -12,6 +12,15 @@
     - All english chracters
     - the alphabetic characters are contiguous. (EBCDIC leaves a gap between "i" and "j")
 
+  * A declaration is composed of a name and optionally some declarator operators. the most common declearator is 
+    - prefix: *, *const,  *volatile, &, &&, auto
+    - posfix: [], (), -> 
+    - __postfix declarator__ bind tighter than __prefix declarator__
+      * char*kings[] is a array of pointers to char. 
+      * char(*kings)[] is a pointer to an array of char.
+  * A hidden global name can be referenced by a scope resolution operator ::
+    
+
 
 ## A Tutorial of C++ by Barne Stroustrup.
 
