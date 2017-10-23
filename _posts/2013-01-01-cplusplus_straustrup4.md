@@ -1,8 +1,7 @@
 ## C++ programming language by Barne Stroustrup (4th edition)
 
-# branch aaa2
-
 ## Type and declarations
+
   * freestanding implementation are meant for code running with only the most minimal operating system support.
   * integers can be implicitly converted to boolean. 
     - bool b = 7 // OK
@@ -11,17 +10,11 @@
   * It safe to assume that implementation character set includes the decimal digits, 26 alphabetic characters of English, and some of the basic punctuation characters.
   * It unsafe to assume:
     - There are no more than 127 characters. (some has 255)
-    - All english chracters
+    - All English characters
     - the alphabetic characters are contiguous. (EBCDIC leaves a gap between "i" and "j")
-
-  * A declaration is composed of a name and optionally some declarator operators. the most common declearator is 
-    - prefix: *, *const,  *volatile, &, &&, auto
-    - posfix: [], (), -> 
-    - __postfix declarator__ bind tighter than __prefix declarator__
-      * char*kings[] is a array of pointers to char. 
-      * char(*kings)[] is a pointer to an array of char.
-  * A hidden global name can be referenced by a scope resolution operator ::
-    
+    - __CAN NOT __ mix __pointers__ of different char types.
+    - __CAN__ mix char types.
+       * Assigning too-large value to a signed char is not defined.
 
 
 ## A Tutorial of C++ by Barne Stroustrup.
